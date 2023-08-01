@@ -1,0 +1,74 @@
+{
+    "grouprole": [
+        {
+            "group_id": 1,
+            "group_name": "Admin",
+            "role_list": "Admin",
+            "obj_roles": [
+                {
+                    "ref_role_id": "100001",
+                    "role_name": "Admin",
+                    "role_active": 1
+                }
+            ]
+        },
+        {
+            "group_id": 2,
+            "group_name": "Regular Users",
+            "role_list": "User",
+            "obj_roles": [
+                {
+                    "ref_role_id": "100010",
+                    "role_name": "User",
+                    "role_active": 1
+                }
+            ]
+        }
+    ],
+    "users": [
+        {
+            "userid": "1",
+            "displayName": "Demo Admin",
+            "firstName": "Demo",
+            "lastName": "Admin",
+            "username": "admin",
+            "email": "demo@helloworld.com",
+            "ern": "1234",
+            "team": "WoW",
+            "title": "Developer",
+            "phoneno": null,
+            "ref_group_id": 1,          
+            "group_name": "Admin",
+            "roles": "Admin",
+            "obj_roles": [
+                {
+                    "ref_role_id": "100001",
+                    "role_name": "Admin",
+                    "role_active": 1
+                }
+            ]
+        },
+        {
+            "userid": 2,        
+            "displayName": "Demo Readonly",
+            "firstName": "Demo",
+            "lastName": "Readonly",
+            "username": "common",
+            "email": "demo-readonly@helloworld.com",
+            "ern": "1234567",
+            "team": "WoW-Demo",
+            "title": "Tester",
+            "phoneno": null,
+            "ref_group_id": 2,          
+            "group_name": "Regular Users",
+            "roles": "User",
+            "obj_roles": [
+                {
+                    "ref_role_id": "100010",
+                    "role_name": "User",
+                    "role_active": 1
+                }
+            ]
+        }
+    ]
+}

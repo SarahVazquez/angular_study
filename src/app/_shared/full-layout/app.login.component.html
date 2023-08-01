@@ -1,0 +1,39 @@
+<div class="login-body">
+  <app-progress-spinner-w-overay [value]="100" [backdropEnabled]="true" 
+                                 [positionGloballyCenter]="true" [displayProgressSpinner]="spinnerResourcesLoaded"> 
+  </app-progress-spinner-w-overay>
+  <div class="login-content">
+    <div class="login-panel">
+      <div class="login-panel-content">
+        <form [formGroup]="loginForm" class="form-signin" (ngSubmit)="onSubmit()" [ngStyle]="{'background-color':loginBGColor}">
+          <img class="mb-4" src="../../assets/images/logo.png" alt="" width="72" height="72">
+          <h1 class="h3 mb-3 font-weight-normal">{{txt_loginpage}}</h1>
+          <p>Welcome, Angular System</p>
+          <div class="forms">
+            <div class="login-input-wrapper">
+                <label for="username">User Name</label>
+                <input type="text" formControlName="username" autocomplete="username"
+                  [readonly]="spinnerResourcesLoaded"
+                  class="form-control" [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+                  placeholder="admin or common" title="System Logon"
+                  required autofocus>
+                  <small *ngIf="errMsg" id="username2-help" class="p-error block">{{errMsgUsername}}</small>
+            </div>
+            <div class="login-input-wrapper">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" autocomplete="current-password"
+                  [readonly]="spinnerResourcesLoaded"
+                  class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" 
+                  placeholder="Password" required>
+                  <small *ngIf="errMsg" id="username2-help" class="p-error block">{{errMsgPwd}}</small>
+            </div>
+          </div>
+          <div class="buttons">
+            <button [disabled]="spinnerResourcesLoaded">Sign in</button>
+          </div>
+          <p style="font-size:0.7rem;border:1px solid lightgray;">This site is best used with Google Chrome or Microsoft Edge browsers with a Windows 10 operating system.</p>
+        </form>        
+      </div>        
+    </div>
+  </div>
+</div>

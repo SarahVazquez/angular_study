@@ -1,0 +1,35 @@
+[
+    {
+        "userid": 1,        
+        "displayName": "Demo Admin",
+        "firstName": "Demo",
+        "lastName": "Admin",
+        "username": "admin",
+        "password": "1",
+        "email": "demo@helloworld.com",
+        "ern": "1234",
+        "team": "WoW",
+        "title": "Developer",
+        "phoneno": null,
+        "role": ["admin", "user"],        
+        "iat": 1676869200,
+        "exp": 4102358400,
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjEsImRpc3BsYXlOYW1lIjoiRGVtbyBBZG1pbiIsImZpcnN0TmFtZSI6IkRlbW8iLCJsYXN0TmFtZSI6IkFkbWluIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiZGVtb0BoZWxsb3dvcmxkLmNvbSIsImVybiI6IjEyMzQiLCJ0ZWFtIjoiV29XIiwidGl0bGUiOiJEZXZlbG9wZXIiLCJwaG9uZW5vIjpudWxsLCJyb2xlIjpbImFkbWluIiwidXNlciJdLCJpYXQiOjE2NzY4NjkyMDAsImV4cCI6NDEwMjM1ODQwMH0.cL34UxbUtFMTkipLsn-svfaWWJ9BZCGkrK_yrPNWCKQ"
+    },{
+        "userid": 2,        
+        "displayName": "Demo Readonly",
+        "firstName": "Demo",
+        "lastName": "Readonly",
+        "username": "common",
+        "password": "1",
+        "email": "demo-readonly@helloworld.com",
+        "ern": "1234567",
+        "team": "WoW-Demo",
+        "title": "Tester",
+        "phoneno": null,
+        "role": ["user"],        
+        "iat": 1676869200,
+        "exp": 4102358400,        
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjIsImRpc3BsYXlOYW1lIjoiRGVtbyBSZWFkb25seSIsImZpcnN0TmFtZSI6IkRlbW8iLCJsYXN0TmFtZSI6IlJlYWRvbmx5IiwidXNlcm5hbWUiOiJjb21tb24iLCJlbWFpbCI6ImRlbW8tcmVhZG9ubHlAaGVsbG93b3JsZC5jb20iLCJlcm4iOiIxMjM0NTY3IiwidGVhbSI6IldvVy1EZW1vIiwidGl0bGUiOiJUZXN0ZXIiLCJwaG9uZW5vIjpudWxsLCJyb2xlIjpbInVzZXIiXSwiaWF0IjoxNjc2ODY5MjAwLCJleHAiOjQxMDIzNTg0MDB9.cikx9fobYwrv14ID4x9jfqGnqZzwHLz1njpHTJvhnEo"
+    }
+]
