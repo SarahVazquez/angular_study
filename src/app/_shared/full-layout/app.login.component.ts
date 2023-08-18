@@ -3,17 +3,15 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { AuthenticationService } from '@_core/services';
 import { environment } from '@_environments/environment';
-
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './app.login.component.html',
   styleUrls: ['./app.login.component.css']
 })
+
 export class AppLoginComponent implements OnInit {
     ShowConsoleMessages:boolean = environment.showConsoleMessages;
     txt_loginpage: string = environment.txt_loginpage;
@@ -26,12 +24,14 @@ export class AppLoginComponent implements OnInit {
     errMsg: boolean = false;
     errMsgUsername: string;
     errMsgPwd: string;
+    showPassword = false;
 
     constructor(       
       private router: Router,
       private authenticationService: AuthenticationService,
       private formBuilder: FormBuilder,
     ) {
+      
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) {
         this.router.navigate(['/']);
@@ -45,6 +45,11 @@ export class AppLoginComponent implements OnInit {
         password: ['', Validators.required]
       });
     }
+
+    togglePasswordVisibility(){
+      this.showPassword = !this.showPassword;
+    }
+
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
 
@@ -52,11 +57,19 @@ export class AppLoginComponent implements OnInit {
       this.submitted = true;
       this.username = this.f['username'].value;
       this.password = this.f['password'].value;
+      this.errMsgUsername = null;
+      this.errMsgPwd = null;
 
       if (this.loginForm.invalid) {
-/*
-*   show error message if username or password is empty
-*/
+
+        if(!this.username){
+            this.errMsgUsername = 'Username is required.';
+          }
+
+        if(!this.password){
+            this.errMsgPwd = 'Password is required.';
+          }
+          
         return;
       } 
       else{
@@ -81,7 +94,6 @@ export class AppLoginComponent implements OnInit {
                     this.ShowConsoleMessages && console.log('%cOther','background-color:red;color:white;',error);
                     this.errMsgPwd = error.error.message ? error.error.message : (error.statusText ? error.statusText : defaultErrorMessage);
                   }
-                  this.errMsgUsername = defaultErrorMessage;
                   this.errMsg = true;
                   this.spinnerResourcesLoaded = false;
                 });

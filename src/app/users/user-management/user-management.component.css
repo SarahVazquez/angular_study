@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    font-size: 18px;
+   }
+
+   .formgrid.grid {
+    padding: 30px;
+   }
+
+   .user-management-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Overriding Global Styles */
+  ::ng-deep .p-datatable .p-datatable-header {
+    background-color:#ffffff;
+    color: #343a40;
+    border: 1px solid #ffffff;
+  }
+
+  ::ng-deep .p-datatable .p-datatable-thead > tr > th{
+    text-align: left;
+    padding: 1rem 1rem;
+    border: 1px solid #dee6e2;
+    border-width: 0 0 1px 0;
+    font-weight: 600;
+    font-size: 18px;
+    color: #343a40;
+    background: #dbedcd;
+    transition: box-shadow 0.2s;
+  }
+ 
+  .user-list {
+    flex: 1;
+    padding-right: 10px; 
+  }
+  
+  .user-details {
+    flex: 1;
+    padding-left: 10px; 
+  }
+
+  .button-cancel{
+    background-color: #919392; 
+    color: white;
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .button-cancel:hover {
+    background-color: #797b7a;
+  }
+
+  .formgrid.grid {
+    padding: 30px;
+ }
+
+.button-submit {
+  background-color: #88C659; 
+  color: white; 
+  font-size: 16px; 
+  padding: 10px 20px; 
+  border: none; 
+  cursor: pointer; 
+  border-radius: 4px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-submit:hover {
+  background-color: #72B63E;
+}
+
+
+.table-bar{
+  display: flex;
+  align-items: right;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.dropdowns{
+  position:relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+} 
+
+.search-input {
+  position:relative;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.pi-search {
+  position: absolute;
+  left: 10px;
+  color: #999;
+  transform: translateY(-10%);
+}
+.search-input input {
+  padding-left: 30px; 
+}
+
+.divider-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

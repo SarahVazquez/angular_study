@@ -5,10 +5,12 @@
             <i class="pi pi-lock" *ngIf="appMain.staticMenuActive"></i>
             <i class="pi pi-lock-open" *ngIf="!appMain.staticMenuActive"></i>
         </a>
-        <a routerLink="/">
-            <img alt="logo" src="assets/images/logo.png" />
+        <!-- <a routerLink="/">
+            <div class="image-container crop-bottom">
+                <img src="https://logotyp.us/file/nyc-parks.svg" alt="Image" class="logo">
+              </div>
             <span class="app-name"></span>
-        </a>
+        </a> -->
     </div>
 
     <div class="layout-menu-container" (click)="onMenuClick()">
@@ -17,3 +19,22 @@
         </ul>
     </div>
 </div>
+
+<style>
+  .sidebar-logo .image-container img.logo {
+    width: auto; 
+    height: 200px; 
+    overflow: hidden; 
+    position: relative;
+    padding-top: 50px;
+}
+
+  .crop-bottom{
+    width: auto;
+    height: 100%;
+    position: relative;
+    bottom: 50;
+}
+</style>
+
+

@@ -8,3 +8,6 @@
 @import url('primeflex/primeflex.css');
 @import url('primeicons/primeicons.css');
 @import url('prismjs/themes/prism-coy.css');
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

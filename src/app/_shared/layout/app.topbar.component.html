@@ -20,6 +20,13 @@
                 <i class="pi pi-ellipsis-v"></i>
             </a>
         </div>
+
+        <div class="layout-topbar-right">
+            <div class="image-container">
+              <img src="https://logotyp.us/file/nyc-parks.svg" alt="logo" class="toolbar-image" />
+          </div>
+    </div>
+
         <div class="layout-topbar-right fadeInDown">
             <ul class="layout-topbar-actions">
                 <li #profile class="topbar-item profile-item" [ngClass]="{'active-topmenuitem': appMain.activeTopbarItem === profile}">
@@ -37,7 +44,7 @@
                             </div>
                         </li>
                         <li class="layout-submenu-footer">
-                            <button class="signout-button" (click)="onSignOut()">Sign Out</button>                            
+                            <button class="signout-button w-full" (click)="onSignOut()" style="background-color: #88C659; color: white; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px;">Sign Out</button>                            
                         </li>
                     </ul>
                 </li>
@@ -70,3 +77,27 @@
         </div>
     </div>
 </div>
+
+<style>
+
+.layout-topbar{
+    background-color: #ffffff;
+}
+
+.layout-topbar-right{
+  position: relative;
+  height: 100%;
+}
+
+.image-container {
+  height: 90px; 
+  overflow: hidden;
+  top: 50%;
+  transform: translate(40%, -18%);
+}
+
+.toolbar-image {
+  height: 137%; 
+}
+
+</style>

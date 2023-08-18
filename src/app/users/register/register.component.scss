@@ -1,41 +1,93 @@
 /** Overay Spinner with p-dialog**/
-:host ::ng-deep .xop .p-dialog-header {
-    display: none;
+// :host ::ng-deep .xop .p-dialog-header {
+//     display: none;
+//   }
+
+// :host ::ng-deep .xop .p-dialog-content {
+// opacity: 50%;
+// border: none;
+// }
+
+// :host ::ng-deep .overay .p-dialog {
+// border: none;
+// }
+
+// @keyframes spinner {
+// 0% {
+//     transform: translate3d(-50%, -50%, 0) rotate(0deg);
+// }
+// 100% {
+//     transform: translate3d(-50%, -50%, 0) rotate(360deg);
+// }
+// }
+// .spin::before {
+// animation: 0.7s linear infinite spinner;
+// animation-play-state: inherit;
+// border: solid 5px #cfd0d1;
+// border-bottom-color: #1c87c9;
+// border-radius: 50%;
+// content: "";
+// height: 40px;
+// width: 40px;
+// position: absolute;
+// top: 10%;
+// left: 10%;
+// transform: translate3d(-50%, -50%, 0);
+// will-change: transform;
+// }
+
+// :host ::ng-deep .overay .p-dialog .p-dialog-content {
+//     background: none;
+// }
+
+.container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh; 
+ font-size: 18px;
+}
+
+.formgrid.grid {
+    padding: 30px;
+ }
+
+
+h3{
+    text-align: left;
+    padding-left: 27px;
+    font-size: 20px;
+}
+
+  .button-submit {
+    background-color: #88C659; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-:host ::ng-deep .xop .p-dialog-content {
-opacity: 50%;
-border: none;
-}
+  .button-submit:hover {
+    background-color: #72B63E;
+  }
 
-:host ::ng-deep .overay .p-dialog {
-border: none;
-}
+  .button-cancel{
+    background-color: #919392; 
+    color: white; 
+    font-size: 16px; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
 
-@keyframes spinner {
-0% {
-    transform: translate3d(-50%, -50%, 0) rotate(0deg);
-}
-100% {
-    transform: translate3d(-50%, -50%, 0) rotate(360deg);
-}
-}
-.spin::before {
-animation: 0.7s linear infinite spinner;
-animation-play-state: inherit;
-border: solid 5px #cfd0d1;
-border-bottom-color: #1c87c9;
-border-radius: 50%;
-content: "";
-height: 40px;
-width: 40px;
-position: absolute;
-top: 10%;
-left: 10%;
-transform: translate3d(-50%, -50%, 0);
-will-change: transform;
-}
+  .button-cancel:hover {
+    background-color: #797b7a;
+  }
 
-:host ::ng-deep .overay .p-dialog .p-dialog-content {
-    background: none;
-}
+
+  

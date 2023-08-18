@@ -38,6 +38,9 @@ import { AppNotfoundComponent } from '@_shared/full-layout/app.notfound.componen
 import { AppErrorComponent } from '@_shared/full-layout/app.error.component';
 import { AppAccessdeniedComponent } from '@_shared/full-layout/app.accessdenied.component';
 
+// Password
+import { PasswordModule } from 'primeng/password';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +56,7 @@ import { AppAccessdeniedComponent } from '@_shared/full-layout/app.accessdenied.
     AppFooterComponent,
     AngularSiteComponent,
     RegisterComponent,
-    UserManagementComponent
+    UserManagementComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,8 @@ import { AppAccessdeniedComponent } from '@_shared/full-layout/app.accessdenied.
     PrimeNGModule,
     MaterialModule,
     ProgressSpinnerModule,
+    PasswordModule,
+   
     JwtModule.forRoot({
         config: {
           tokenGetter: function tokenGetter() {

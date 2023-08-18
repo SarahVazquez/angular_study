@@ -292,7 +292,7 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100%;
-  background-color: #eceff4;
+  background-color: #F4FAF0;
 }
 body .ajax-loader {
   font-size: 32px;
@@ -925,9 +925,11 @@ a {
   background-color: #ffffff;
 }
 .layout-menu-light .layout-sidebar .sidebar-logo .sidebar-pin {
-  background-color: #2e3440;
+  /* background-color: #f3f9ee; */
+  background-color: #88C659;
 }
 .layout-menu-light .layout-sidebar .sidebar-logo .sidebar-pin i {
+  /* color: #88C659; */
   color: #ffffff;
 }
 .layout-menu-light .layout-sidebar .sidebar-logo .app-name {
@@ -943,22 +945,22 @@ a {
   outline: none;
 }
 .layout-menu-light .layout-sidebar .layout-menu li > a.active-menuitem-routerlink .menuitem-text {
-  color: #5e81ac;
+  color: #6c9e47;
 }
 .layout-menu-light .layout-sidebar .layout-menu li > a.active-menuitem-routerlink i {
-  color: #5e81ac;
+  color: #6c9e47;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li > a .menuitem-text {
   color: #2e3440;
 }
-.layout-menu-light .layout-sidebar .layout-menu > li > a i {
+.layout-menu-light .layout-sidebar .layout-menu > li > a i {  /*Make darker green */
   color: #4c566a;
 }
-.layout-menu-light .layout-sidebar .layout-menu > li > a:hover {
-  background-color: #f4f4f4;
+.layout-menu-light .layout-sidebar .layout-menu > li > a:hover { /*HOVER COLOR CHANGE */
+  background-color: #e7f3dd;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li.active-menuitem > a {
-  background-color: #5e81ac;
+  background-color: #88C659;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li.active-menuitem > a .menuitem-text {
   color: #ffffff;
@@ -967,7 +969,7 @@ a {
   color: #ffffff;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li.active-menuitem > a.active-menuitem-routerlink {
-  background-color: #5e81ac;
+  background-color: #88C659;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li.active-menuitem > a.active-menuitem-routerlink .menuitem-text {
   color: #ffffff;
@@ -975,8 +977,8 @@ a {
 .layout-menu-light .layout-sidebar .layout-menu > li.active-menuitem > a.active-menuitem-routerlink i {
   color: #ffffff;
 }
-.layout-menu-light .layout-sidebar .layout-menu > li ul {
-  background-color: #e8e8e8;
+.layout-menu-light .layout-sidebar .layout-menu > li ul {  /* sub menu color*/
+  background-color: #f3f9ee;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li ul li a .menuitem-text {
   color: #2e3440;
@@ -984,14 +986,14 @@ a {
 .layout-menu-light .layout-sidebar .layout-menu > li ul li a i {
   color: #4c566a;
 }
-.layout-menu-light .layout-sidebar .layout-menu > li ul li a:hover {
-  background-color: #f4f4f4;
+.layout-menu-light .layout-sidebar .layout-menu > li ul li a:hover { /* sub menu hover color */
+  background-color: #e7f3dd;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li ul li.active-menuitem > a .menuitem-text {
-  color: #5e81ac;
+  color: #364f23;
 }
 .layout-menu-light .layout-sidebar .layout-menu > li ul li.active-menuitem > a i {
-  color: #5e81ac;
+  color: #364f23;
 }
 @media (min-width: 992px) {
   .layout-menu-light.layout-horizontal .layout-sidebar {

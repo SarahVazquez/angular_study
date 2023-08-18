@@ -21,7 +21,7 @@ const routes: Routes = [{
       {path: 'project', component: AngularSiteComponent},
       {path: 'setting', component: AngularSiteComponent},
       {path: 'newuser', component: RegisterComponent},
-      {path: 'users'  , component: UserManagementComponent},
+      {path: 'users'  , component: UserManagementComponent,},
     ]
   },
   {path: 'error', component: AppErrorComponent},

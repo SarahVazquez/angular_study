@@ -1,3 +1,158 @@
-<div class='col-12 p-col-12' style="margin-bottom:0.5rem">
-    <h3 style="display:inline-block">User Management</h3>
+
+  <app-progress-spinner-w-overay [value]="100" [backdropEnabled]="true" 
+    [positionGloballyCenter]="true" [displayProgressSpinner]="spinnerResourcesLoaded"> 
+  </app-progress-spinner-w-overay>
+  
+  <div class="user-management-container">
+    <div class="user-list">
+      <p-table 
+        #search 
+        [value]="filteredUsers" 
+        styleClass="p-datatable-striped" 
+        selectionMode="single" 
+        [(selection)]="selectedUser" 
+        dataKey="userid" 
+        [paginator]="true" 
+        [rows]="5" 
+        [rowsPerPageOptions]="[5,10,15,20]" 
+        totalUsers="totalUsers" 
+        [pageLinks]="3" 
+        [globalFilterFields]="['username', 'firstName', 'lastName']"
+        [sortField]="sortField"
+        [sortOrder]="sortOrder"
+        >
+
+      <ng-template pTemplate="caption">
+        <div class="flex justify-between items-right">
+          <p-divider align="left">
+            <div class="inline-flex items-center">
+              <i class="pi pi-user mr-2" style="font-size: 1.5rem"></i>
+              <b style="font-size: 1.5rem;">User Management</b>
+            </div>
+          </p-divider>
+        <div class="mx-2"></div> 
+          <div class="table-bar">
+            <div class="dropdowns">
+              <p-dropdown [options]="sortOptions" [(ngModel)]="selectedSortOption" placeholder="Sort" (onChange)="applySort()" styleClass="mb-2 md:mb-0"></p-dropdown>
+              <div class="mx-2"></div> 
+              <p-dropdown [options]="filterOptions" [(ngModel)]="selectedFilterOption" placeholder="Select a Role" (onChange)="applyFilter()" styleClass="mb-2 md:mb-0"></p-dropdown>
+              <div class="mx-2"></div> 
+            </div>
+            <div class="search-input">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text"  
+              placeholder="Search Keyword" 
+              (input)="search.filterGlobal(getValue($event), 'contains')"/>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th></th>
+          <th>Username</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-user let-i="rowIndex">
+        <tr [pSelectableRow]="user" (click)="selectUser(user)">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      </ng-template>
+      </p-table>
+    </div>
+
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6" *ngIf="selectedUser">
+    <p-divider align="center">
+      <div class="inline-flex align-items-center">
+          <i class="pi pi-user-edit mr-2" style="font-size: 1.5rem"></i>
+          <b style="font-size: 1.5rem;">User Information</b>
+      </div>
+    </p-divider>
+    
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="formgrid grid">
+        <div class="field col-12 md:col-6">
+          <label for="username">Username (Not Editable)</label>
+          <input formControlName="username" 
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div> 
+
+        <div class="field col-12 md:col-6">
+          <label for="ern">ERN</label>
+          <input formControlName="ern" 
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div> 
+
+        <div class="field col-12 md:col-6">
+          <label for="firstName">Firstname *</label>
+            <input formControlName="firstName" 
+              class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              required>
+            <small *ngIf="isFieldInvalid('firstName')" class="p-error">This field is required</small>
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="lastName">Lastname *</label>
+            <input formControlName="lastName" 
+              class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              required>
+            <small *ngIf="isFieldInvalid('lastName')" class="p-error">This field is required</small>
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="title">Title</label>
+            <input formControlName="title" 
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="team">Team</label>
+            <input formControlName="team" 
+            class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="roles">Role (Not Implemented)</label>
+            <input formControlName="roles" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label for="phoneno">Phone #</label>
+            <input formControlName="phoneno"  
+              placeholder="(10 digits)" 
+              class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+              oninput="this.value = this.value.replace(/[^0-9]/g, ''); if(this.value.length > 10) this.value = this.value.slice(0, 10);">
+        </div>
+
+        <div class="field col-12 md:col-12">
+          <label for="email">Email</label>
+            <input formControlName="email" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+        </div>
+    
+        <button pButton pRipple label="Edit" class="w-full button-submit" style="margin-top: 40px; margin-bottom: -30px;" (click)="enterEditMode()" *ngIf="!editMode"></button>
+        
+        <div class="field col-12 md:col-6" style="margin-top: 40px; margin-bottom: -20px;">
+          <div class="buttons">
+            <p-toast></p-toast>
+              <button pButton pRipple label="Save" type="submit" class="w-full button-submit" *ngIf="editMode"></button>
+          </div>
+        </div>
+
+        <div class="field col-12 md:col-6" style="margin-top: 40px; margin-bottom: -20px;">
+          <div class="buttons">
+            <button pButton pRipple label="Cancel" class="w-full button-cancel" (click)="cancelEdit()" *ngIf="editMode"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

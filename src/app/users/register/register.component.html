@@ -1,11 +1,141 @@
-<ng-container>
-    <div class="grid">
-        <div class="col-12 md:col-5">
-            <div class="grid">
-                <div class="col-12">
-                    <h3>** Please update your profile **</h3>
+  <app-progress-spinner-w-overay [value]="100" [backdropEnabled]="true" 
+    [positionGloballyCenter]="true" [displayProgressSpinner]="spinnerResourcesLoaded"> 
+  </app-progress-spinner-w-overay>
+  
+
+<div class="container">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6">
+        <!-- <h3>** Please update your profile **</h3> -->
+        <p-divider align="center">
+            <div class="inline-flex align-items-center">
+                <i class="pi pi-user-plus mr-2" style="font-size: 1.5rem"></i>
+                <b style="font-size: 1.7rem;">User Registration</b>
+            </div>
+        </p-divider>
+
+        <div class="formgrid grid">
+            <div class="field col-12">
+                <label for="ern">ERN</label>
+                <input 
+                    id="ern" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.ern" 
+                    name="ern">
+            </div> 
+
+            <div class="field col-12 md:col-6">
+                <label for="firstName">Firstname *</label>
+                <input 
+                    id="firstName" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.firstName" 
+                    name="firstName" 
+                    required >
+                <small *ngIf="isFieldInvalid('firstName')" class="p-error">This field is required</small>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="lastName">LastName *</label>
+                <input 
+                    id="lastName" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.lastName" 
+                    name="lastName" 
+                    required >
+                    <small *ngIf="isFieldInvalid('lastName')" class="p-error">This field is required</small>
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="title">Title</label>
+                <input 
+                    id="title" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.title" 
+                    name="title">
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="team">Team</label>
+                <input 
+                    id="team" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.team" 
+                    name="team">
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="role">Role (Not Implemented)</label>
+                <input 
+                    id="role" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.role" 
+                    name="role" 
+                    [disabled]="!editMode">
+            </div>
+
+            <div class="field col-12 md:col-6">
+                <label for="phone">Phone</label>
+                <input 
+                    id="phone" 
+                    type="text" 
+                    placeholder="(10 digits)"
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.phoneno" 
+                    name="phone" 
+                    oninput="this.value = this.value.replace(/[^0-9]/g, ''); if(this.value.length > 10) this.value = this.value.slice(0, 10);">
+            </div>
+
+            <div class="field col-12">
+                <label for="email">Email</label>
+                <input 
+                    id="email" 
+                    type="text" 
+                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                    [(ngModel)]="user.email" 
+                    name="email">
+            </div>
+                    
+            <div class="field col-12">
+                <p-message severity="error" [text]="errMsg" *ngIf="errMsg" id="username2-help" class="p-error block custom-padding-bottom">></p-message>
+            </div>
+                
+            <div class="field col-12 md:col-6">
+                <div class="buttons">
+                    <button pButton pRipple label="Submit" class="w-full button-submit" (click)="createUser()" ></button>
                 </div>
             </div>
-        </div>
+
+            <div class="field col-12 md:col-6">
+                <div class="buttons">
+                    <button pButton pRipple label="Clear" class="w-full button-cancel" (click)="clearForm()"></button>
+                </div>
+
+                <div class="card flex justify-content-center">
+                    <p-dialog [(visible)]="displayModal" [modal]="true" [style]="{ width: '30vw'}" [draggable]="false" [resizable]="false" >
+                
+                    <ng-template pTemplate="content">
+                        <div class="text-center">
+                            <span style="font-size: 30px; font-weight: bold; padding: 10px">Success!</span>
+                            <p style="font-size: 20px; padding: 10px 0;">New User Created!</p>
+                        </div>
+                    </ng-template>
+
+                    <ng-template pTemplate="footer">
+                        <div class="buttons">
+                            <button pButton pRipple class="button-submit" [routerLink]="['/']" label="Go To Main"></button>
+                        </div>
+                    </ng-template> 
+
+                    </p-dialog>
+                 </div>   
+            </div>
+       </div>
     </div>
-</ng-container>
+</div>
+
